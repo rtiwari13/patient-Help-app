@@ -1,6 +1,6 @@
 # Patient Helping functional  app using Django 
 ## Helping Patients 
-![Screenshot of App (!img\top.png)]
+<img src="img\top.png"/>
 ![Working insight(!img\img1.png)]
 ![( !img\img3.png)]
 
