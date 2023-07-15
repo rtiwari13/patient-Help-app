@@ -1,6 +1,6 @@
 # Patient Helping functional  app using Django 
 ## Helping Patients 
-<img src="src/patientshelp/docsupload/img/img1.png"/>
+<img src="https://drive.google.com/drive/my-drive?ths=true"/>
 
 
 ## Details 
