@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Help Web App Using Django</title>
+    <style>
+        * {
+            box-sizing: border-box;
+          }
+          body{
+            background-color:  #f8f6f6;
+          }
+          .nav-links{
+            background-color: rgba(92, 199, 226, 0.904) ;
+            display: flex;
+            padding:0.5em;
+            list-style: none;
+            border-radius: 0.3em;
+          }
+          #title{
+            padding-top: 10px;
+            margin-left: 0.3em;
+            color:purple;
+            font-weight: 800;
+            font-size: 30px;
+            font-family: Georgia;
+          }
+          .nav-links >li{
+            margin-top: 0;
+          }
+          .nav-links> li > a{
+            display: block;
+            padding: 0.7em 3em 0.7em 3em;
+            background: rgba(92, 199, 226, 0.504);
+            color: #0f0f0f;
+            text-decoration: none;
+            border-radius: 0.5em;
+            font-family: sans-serif;
+            margin-top: 0.8em;
+            font-weight: 600;
+        }
+        .nav-links > li+li{
+          margin-left: 1.5em;
+      }
+      
+      
+      /* Create two equal columns that floats next to each other */
+      .column-one{
+        float: left;
+        width: 60%;
+        padding: 15px;
+        height: 555px; 
+        background: #f8f6f6;
+      }
+      .column-two{
+        float: left;
+        width: 40%;
+        height: 555px;
+        background: #f8f6f6;
+      }
+      .column-two img{
+        margin-left: 50px;
+
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .name{
+        background-color: #fff;
+        border: none;
+        box-shadow: 0 0 10px rgb(81, 81, 88);
+        width: 30em;
+        height: 3em;
+        border-radius: 8px;
+      }
+      .detail{
+        background-color: #fff;
+        border: none;
+        box-shadow: 0 0 10px rgb(81, 81, 88);
+        width: 30em;
+        height: 7em;
+        border-radius: 8px; 
+      }
+      .submit-button{
+        background-color:rgba(92, 199, 226, 0.904);
+        border: none;
+        box-shadow: 0 0 10px rgb(81, 81, 88);
+        width: 7em;
+        height: 3em;
+        margin-left:10em;
+        border-radius: 8px;
+      }
+      .submit-button:hover{
+        background-color: rgb(13, 79, 139);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .upload-button{
+        background-color:rgb(216,63,63);
+        border: none;
+        box-shadow: 0 0 10px rgb(81, 81, 88);
+        width: 5em;
+        height: 2em;
+        border-radius:3px;
+      }
+      
+      form{
+        decoration:none;
+      }
+
+
+       </style>
+</head>
+<body>
+    <!--Navbar-->
+  <nav>
+   
+    
+      <div>
+         <ul class="nav-links">
+        <div id="title">PatientHelp</div>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        
+            </ul>
+    </div>
+  </nav>
+
+
+    <!--Side Image -->  
+      <div class="row">
+        <div class="column-one" >
+          <h1 style="font-family: sans-serif; margin:0;">Find Your Doctor Here For Better Health </h1>
+          <h3 style="margin:0.4em 0 0.4em 0;">Name</h3> <input  class = "name" type="text" placeholder="Your full name">
+         
+                <h3 style="margin:0.4em 0 0.4em 0;">Description of Health Issue</h3> <input  class="detail" type="text" placeholder="Tell us about health issue ">
+
+
+          <div>
+                {% if msg %} {% autoescape off %} {{ msg }} {% endautoescape %} {% endif %}
+                <form method="post" action="/" enctype="multipart/form-data">
+                    {% csrf_token %}
+                   <h3 style="margin:  0.4em 0 0 0;">Upload Document</h3> 
+                    <dl>
+                        <p>
+                            <label>Browse and select a file</label>&nbsp;&nbsp;
+                            <input type="file" name="file" autocomplete="off" required>
+                        </p>
+                    </dl>
+                    <p>
+                        <input type="submit" class="upload-button" value="Upload">
+                    </p>
+                    
+                </form>
+           
+        </div>
+        <input type="submit" class="submit-button">
+        <h3 style="margin-top:1em;">Your QR Code is :</h3>
+        
+        </div>
+        <div class="column-two" >
+         <img src="https://i.pinimg.com/564x/bf/b8/ce/bfb8ce06e5fe19bc0034b5a21c0ee178.jpg" height="600px" width="450px">
+        </div>
+      </div>
+    
+      
+    <!--Name-->
+    <!--Description -->
+    <!--Upload pdf -->
+    <!--Single File Upload-->
+    <!-- QR CODE-->
+  
+</body>
+</html>
